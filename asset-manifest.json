@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Syntexchub_expense-app/static/css/main.5857f9f5.css",
+    "main.js": "/Syntexchub_expense-app/static/js/main.2705f138.js",
+    "index.html": "/Syntexchub_expense-app/index.html",
+    "main.5857f9f5.css.map": "/Syntexchub_expense-app/static/css/main.5857f9f5.css.map",
+    "main.2705f138.js.map": "/Syntexchub_expense-app/static/js/main.2705f138.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5857f9f5.css",
+    "static/js/main.2705f138.js"
+  ]
+}
