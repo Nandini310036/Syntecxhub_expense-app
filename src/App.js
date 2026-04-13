@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import ExpenseForm from "./components/ExpenseForm";
+import ExpenseList from "./components/ExpenseList";
 
-function App() {
+export default function App() {
+  const [expenses, setExpenses] = useState([]);
+
+  useEffect(() => {
+    const data = [
+      { id: 1, title: "Food", amount: 200 },
+      { id: 2, title: "Travel", amount: 500 }
+    ];
+    setExpenses(data);
+  }, []);
+
+  const addExpense = useCallback((expense) => {
+    setExpenses(prev => [...prev, expense]);
+  }, []);
+
+  const total = useMemo(() => {
+    return expenses.reduce((sum, exp) => sum + exp.amount, 0);
+  }, [expenses]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>Expense Tracker</h1>
+
+      <ExpenseForm onAdd={addExpense} />
+      <ExpenseList expenses={expenses} />
+
+      <h2>Total: ₹{total}</h2>
     </div>
   );
 }
-
-export default App;
